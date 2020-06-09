@@ -255,7 +255,8 @@ export default {
       this.onFileChange(e)
     },
     onFileChange (e, prefill) {
-      let files = e.target.files || e.dataTransfer.files
+      let files = e.target.files || e.dataTransfer.files || e.dataTransfer.getData('URL')
+      console.log(files)
       if (!files.length) {
         return
       }
